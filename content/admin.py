@@ -10,6 +10,7 @@ class ImageInline(admin.TabularInline):
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     inlines = (ImageInline,)
+    exclude = ('slug',)
 
 
 class AboutAdmin(admin.ModelAdmin):
