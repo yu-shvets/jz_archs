@@ -129,3 +129,4 @@ STATIC_ROOT = '/home/django/jz_archs/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/django/jz_archs/media/'
+
