@@ -1,0 +1,30 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Julia Zinovieva | About</title>
+    <link rel="stylesheet" href="{% static "content/about.css" %}">
+</head>
+<body>
+    <div class="container">
+        <div class="dropdown">
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'projects' %}">projects / проекты</a></li>
+                    <li><a href="{% url 'about' %}">about/ о себе</a></li>
+                </ul>
+      </div>
+      <div class="main">
+        {% if about.photo %}
+        <img class="image" src={{ about.photo.url }}>
+        {% endif %}
+        <p id="name">Юлия  Зиновьева</p>
+        <p>Украина, Киев</p>
+        <p>+38 095 8459573</p>
+        <p>email: zinovjeva.u@gmail.com</p>
+      </div>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</body>
+</html>

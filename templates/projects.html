@@ -1,0 +1,27 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Julia Zinovieva | Projects</title>
+    <link rel="stylesheet" href="{% static "content/projects.css" %}">
+</head>
+<body>
+    <div class="container">
+      <div class="dropdown">
+          <ul class="dropdown-menu">
+              <li><a href="{% url 'about' %}">about / о себе</a></li>
+              <li><a href="{% url 'contacts' %}">contacts / контакты</a></li>
+          </ul>
+      </div>
+        <h1>Projects/Проекты</h1>
+        {% for project in object_list %}
+            {% if project.main_image %}
+        <a href={% url 'info' project.slug %}><img class="image" src={{ project.main_image.url }}></a>
+            {% endif %}
+       {% endfor %}
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</body>
+</html>
