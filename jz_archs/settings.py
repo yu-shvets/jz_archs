@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'm)5amph*^bt^zp_g#_0-wmv8k7tp0ai3hy*87a*vuny(2xc&65'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -129,4 +129,3 @@ STATIC_ROOT = '/home/django/jz_archs/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/django/jz_archs/media/'
-
