@@ -1,17 +1,99 @@
-{% load static from staticfiles %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Julia Zinovieva | Architect</title>
-    <link rel="stylesheet" href="{% static "content/style.css" %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="{% static "content/css/fonts.css" %}">
+    <link rel="stylesheet" href="{% static "content/css/style.css" %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
 </head>
+
 <body>
+
+    <!-- header -->
+    <header class="header">
         <div class="container">
-          <h1>JULIA ZINOVIEVA / ЮЛИЯ ЗИНОВЬЕВА</h1>
-          <p>ARCHITECT/АРХИТЕКТОР</p>
-          <a class="btn" href="{% url 'projects' %}">Enter / Войти</a>
+            <div class="header__inner">
+                <div class="user">
+                    <a href="{% url 'index' %}">JZarchitects</a>
+                </div>
+                <nav class="nav" id="nav">
+                    <a class="nav__link
+                       {% if not 'contacts' in request.path and not 'worklist' in request.path and not 'projects' in request.path %}active{% endif %}"
+                       href="{% url 'index' %}">projects</a>
+                    <a class="nav__link {% if 'worklist' in request.path %}active{% endif %}" href="{% url 'about' %}">worklist</a>
+                    <a class="nav__link {% if 'contacts' in request.path %}active{% endif %}" href="{% url 'contacts' %}">contacts</a>
+                </nav>
+
+                <button class="burger" type="button" id="navToggle">
+                    <img class="burger__icon" src="{% static "content/images/burger.svg" %}" alt="">
+                </button>
+            </div>
         </div>
+    </header>
+    <!-- end of header -->
+
+    <!-- intro -->
+    <!-- <section class="intro">
+        <div class="container"> -->
+            <!-- <div class="intro__buttons">
+                <div class="buttons">
+                    <button class="btn prev" onclick="plusSlides(-1)">prev/</button>
+                    <button class="btn next" onclick="plusSlides(1)">next</button>
+                </div>
+                <a class="pdf" href="#" download>pdf</a>
+            </div> -->
+        <!-- </div>
+    </section> -->
+    <!-- end of intro -->
+
+    <!-- places -->
+    {% block content %}
+
+    <section>
+        <div class="container">
+            <div class="places">
+
+                {% for project in object_list %}
+                    {% if project.main_image %}
+                <div class="places__col">
+                    <div class="places__info">
+                        <a href="{% url 'info' project.slug %}">
+                            <div class="places__item">
+                                <img src="{{ project.main_image.url }}" class="img__places">
+                            </div>
+                        </a>
+                        <div class="places__title" style="margin-bottom: 20px;">
+                            <a class="places__title-link" href="#">{{ project.name }}<br>{{ project.year }}</a>
+                        </div>
+                    </div>
+                </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+    <!-- end of places -->
+
+    <!-- The Modal -->
+{#    <div id="myModal" class="modal">#}
+{#        <!-- The Close Button -->#}
+{#        <span class="close">&times;</span>   #}
+{#        <!-- Modal Content (The Image) -->#}
+{#        <img class="modal-content" id="img01">#}
+{#    </div>#}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+    <script src="{% static "content/js/app.js" %}"></script>
 </body>
+
 </html>

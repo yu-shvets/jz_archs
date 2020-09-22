@@ -17,13 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from content.views import HomeView, ProjectListView, ProjectDetailView, AboutView, ContactView
+from content.views import IndexView, ProjectDetailView, AboutView, ContactView
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
-    path('projects/', ProjectListView.as_view(), name='projects'),
+    path('', IndexView.as_view(), name='index'),
     path('projects/<slug>/', ProjectDetailView.as_view(), name='info'),
-    path('about/', AboutView.as_view(), name='about'),
+    path('worklist/', AboutView.as_view(), name='about'),
     path('contacts/', ContactView.as_view(), name='contacts'),
 
     path('admin/', admin.site.urls),

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+        {% block content %}
+        <section>
+            <div class="container">
+                <div class="contacts">
+                    <div class="contacts__photo">
+                        {% if about.photo %}
+                        <img style="height: 270px" class="contacts__photo-user" src="{{ about.photo.url }}">
+                        {% endif %}
+                    </div>
+                    <div class="contacts__info">
+                        <div class="contacts__info-name">
+                            yulia zinovieva
+                        </div>
+                        <div class="contacts__info-data">
+                            <p>Ukraine, Kyiv</p>
+                            <p>zinovjeva.u@gmail.com</p>
+                            <p><a class="phone__number" href="tel:+380958459573">+380958459573</a></p>
+                        </div>
+                    </div>
+                </div>
+{#                <div class="intro__buttons" id="editor">#}
+{#                    <a class="pdf" href="#" id="cmd">pdf</a>#}
+{#                </div>#}
+            </div>
+        </section>
+        {% endblock %}

@@ -2,13 +2,9 @@ from django.views.generic import TemplateView, ListView, DetailView
 from .models import Project, About
 
 
-class HomeView(TemplateView):
-    template_name = 'index.html'
-
-
-class ProjectListView(ListView):
+class IndexView(ListView):
     model = Project
-    template_name = 'projects.html'
+    template_name = 'index.html'
     queryset = Project.objects.all()
 
 
@@ -18,7 +14,7 @@ class ProjectDetailView(DetailView):
 
 
 class AboutView(TemplateView):
-    template_name = 'about.html'
+    template_name = 'worklist.html'
 
     def get_context_data(self, **kwargs):
         context = super(AboutView, self).get_context_data(**kwargs)
@@ -27,7 +23,7 @@ class AboutView(TemplateView):
 
 
 class ContactView(AboutView):
-    template_name = 'contacts.html'
+    template_name = 'contact.html'
 
 
 
