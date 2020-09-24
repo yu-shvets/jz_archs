@@ -12,6 +12,20 @@ class ProjectDetailView(DetailView):
     model = Project
     template_name = 'info.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(ProjectDetailView, self).get_context_data(**kwargs)
+        images = self.object.image_set.all()
+        try:
+            context['title_image'] = images[0]
+        except IndexError:
+            pass
+        try:
+            context['second_image'] = images[1]
+        except IndexError:
+            pass
+        context['images'] = images[2:]
+        return context
+
 
 class AboutView(TemplateView):
     template_name = 'worklist.html'

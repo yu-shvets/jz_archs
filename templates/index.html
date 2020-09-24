@@ -38,20 +38,6 @@
     </header>
     <!-- end of header -->
 
-    <!-- intro -->
-    <!-- <section class="intro">
-        <div class="container"> -->
-            <!-- <div class="intro__buttons">
-                <div class="buttons">
-                    <button class="btn prev" onclick="plusSlides(-1)">prev/</button>
-                    <button class="btn next" onclick="plusSlides(1)">next</button>
-                </div>
-                <a class="pdf" href="#" download>pdf</a>
-            </div> -->
-        <!-- </div>
-    </section> -->
-    <!-- end of intro -->
-
     <!-- places -->
     {% block content %}
 
@@ -65,7 +51,7 @@
                     <div class="places__info">
                         <a href="{% url 'info' project.slug %}">
                             <div class="places__item">
-                                <img src="{{ project.main_image.url }}" class="img__places">
+                                <img src="{{ project.main_image.url }}" class="img__places" alt="">
                             </div>
                         </a>
                         <div class="places__title" style="margin-bottom: 20px;">

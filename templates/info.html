@@ -6,22 +6,18 @@
         <div class="container">
             <div class="project__second">
                 <div class="project__info">
-                    <img class="project__img" src="{{ project.main_image.url }}" alt="#">
+                    <img class="project__img" src="{{ title_image.image.url }}" alt="">
                 </div>
 
  <!-- apartments -->
             <div class="apartment">
+                <div class="apartment__photo" style="margin-bottom: 50px">
+                    <img class="project__img" src="{{ second_image.image.url }}" alt="">
+                </div>
                 <div class="apartment__info">
                     <div class="apartment__info-title">
                         {{ project.name }}
                     </div>
-{#                    <div class="apartment__info-subtitle">#}
-{#                        <p>Location: Kyev</p>#}
-{#                        <p>Project Year: 2019</p>#}
-{#                        <p>Project Area: 45m<sup>2</sup></p>#}
-{#                        <p>Status: Developed</p>#}
-{#                        <p>Team: Yulia Zinovieva</p>#}
-{#                    </div>#}
                     <div class="apartment__info-text">
                         {{ project.info }}
                     </div>
@@ -31,8 +27,8 @@
 
                 <div class="project__photo">
                     <div class="project__photo-col">
-                        {% for image in project.image_set.all %}
-                        <img class="project__image" src="{{ image.image.url }}" alt="#">
+                        {% for image in images %}
+                        <img class="project__image" src="{{ image.image.url }}" alt="">
                         {% endfor %}
                     </div>
                 </div>
