@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'm)5amph*^bt^zp_g#_0-wmv8k7tp0ai3hy*87a*vuny(2xc&65'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'jz',
-        'USER': 'django',
+        'USER': 'jz_user',
         'PASSWORD': '********',
         'HOST': 'localhost',
         'PORT': '',
@@ -125,7 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/django/jz_archs/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/django/jz_archs/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
