@@ -14,7 +14,7 @@ class ProjectDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProjectDetailView, self).get_context_data(**kwargs)
-        images = self.object.image_set.all()
+        images = self.object.image_set.all().order_by('position')
         try:
             context['title_image'] = images[0]
         except IndexError:

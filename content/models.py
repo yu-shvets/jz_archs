@@ -41,6 +41,7 @@ class Image(CommonInfo):
         verbose_name_plural = "Images"
 
     image = models.ImageField(upload_to='projects/images')
+    position = models.PositiveIntegerField(blank=True, default=1)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
     def __str__(self):
