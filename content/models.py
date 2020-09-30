@@ -19,12 +19,14 @@ class Project(CommonInfo):
     class Meta(CommonInfo.Meta):
         verbose_name = "Project"
         verbose_name_plural = "Projects"
+        ordering = ('position',)
 
     name = models.CharField(max_length=256)
     main_image = models.ImageField(blank=True, null=True, upload_to='projects/main_images')
     year = models.CharField(max_length=4, blank=True, choices=YEAR_CHOICES)
     info = models.TextField(blank=True, default='')
     slug = models.SlugField(blank=True, null=True)
+    position = models.PositiveIntegerField(blank=True, default=1)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

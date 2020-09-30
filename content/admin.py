@@ -11,6 +11,7 @@ class ImageInline(admin.TabularInline):
 class ProjectAdmin(admin.ModelAdmin):
     inlines = (ImageInline,)
     exclude = ('slug',)
+    list_display = ('name', 'position')
 
 
 class AboutAdmin(admin.ModelAdmin):
