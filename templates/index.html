@@ -55,7 +55,7 @@
                             </div>
                         </a>
                         <div class="places__title" style="margin-bottom: 20px;">
-                            <a class="places__title-link" href="#">{{ project.name }}<br>{{ project.year }}</a>
+                            <a class="places__title-link" href="{% url 'info' project.slug %}">{{ project.name }}<br>{{ project.year }}</a>
                         </div>
                     </div>
                 </div>

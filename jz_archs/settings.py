@@ -129,3 +129,5 @@ STATIC_ROOT = '/home/django/jz_archs/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/django/jz_archs/media/'
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 20000000
