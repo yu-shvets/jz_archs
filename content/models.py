@@ -61,3 +61,35 @@ class About(models.Model):
 
     def __str__(self):
         return 'info'
+
+
+class WorkListCommonInfo(models.Model):
+    years = models.CharField(max_length=16)
+    description = models.TextField()
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.years
+
+
+class WorkExperienceWorkList(WorkListCommonInfo):
+
+    class Meta(WorkListCommonInfo.Meta):
+        verbose_name = 'Worklist - Work Experience'
+        verbose_name_plural = 'Worklist - Work Experience'
+
+
+class ProjectsWorkList(WorkListCommonInfo):
+
+    class Meta(WorkListCommonInfo.Meta):
+        verbose_name = 'Worklist - Project'
+        verbose_name_plural = 'Worklist - Projects'
+
+
+class WorkshopsWorkList(WorkListCommonInfo):
+
+    class Meta(WorkListCommonInfo.Meta):
+        verbose_name = 'Worklist - Workshop'
+        verbose_name_plural = 'Worklist - Workshops'

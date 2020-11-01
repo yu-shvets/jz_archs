@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView, ListView, DetailView
-from .models import Project, About
+from .models import Project, About, WorkExperienceWorkList, ProjectsWorkList, WorkshopsWorkList
 
 
 class IndexView(ListView):
@@ -32,7 +32,9 @@ class AboutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(AboutView, self).get_context_data(**kwargs)
-        context['about'] = About.objects.first()
+        context['work_experience'] = WorkExperienceWorkList.objects.all()
+        context['projects'] = ProjectsWorkList.objects.all()
+        context['workshops'] = WorkshopsWorkList.objects.all()
         return context
 
 
