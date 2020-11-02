@@ -11,12 +11,10 @@
                     </div>
                     <div class="contacts__info">
                         <div class="contacts__info-name">
-                            yulia zinovieva
+                            {{ about.name }}
                         </div>
                         <div class="contacts__info-data">
-                            <p>Ukraine, Kyiv</p>
-                            <p>zinovjeva.u@gmail.com</p>
-                            <p><a class="phone__number" href="tel:+380958459573">+380958459573</a></p>
+                            {{ about.info | linebreaks }}
                         </div>
                     </div>
                 </div>

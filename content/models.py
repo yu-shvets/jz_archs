@@ -57,6 +57,7 @@ class About(models.Model):
         verbose_name_plural = "About"
 
     photo = models.ImageField(blank=True, null=True, upload_to='about/photo')
+    name = models.CharField(max_length=32, blank=True, null=True)
     info = models.TextField()
 
     def __str__(self):
@@ -69,6 +70,7 @@ class WorkListCommonInfo(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ('years',)
 
     def __str__(self):
         return self.years
